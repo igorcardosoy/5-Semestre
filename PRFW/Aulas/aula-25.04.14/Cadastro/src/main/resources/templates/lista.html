@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Listar Clientes</title>
+  </head>
+  <body>
+      <table border="1">
+        <tr>
+          <th>Cliente</th>
+          <th>Email</th>
+          <th>Status</th>
+        </tr>
+        <tr th:each="cliente : ${clientes}">
+          <td th:text="${cliente.nome}"></td>
+          <td th:text="${cliente.email}"></td>
+          <td> <span th:if="not ${cliente.ativo}">inativo</span></td>
+        </tr>
+      </table>
+  </body>
+</html>

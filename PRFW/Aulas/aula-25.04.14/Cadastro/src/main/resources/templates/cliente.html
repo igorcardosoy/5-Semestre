@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+  </head>
+  <body>
+      <p>
+          Cliente: <span th:text="${cliente.nome}"></span> <span th:if="not ${cliente.ativo}">(inativo)</span>
+
+        <br>
+
+          Email: <span th:text="${cliente.email}"></span>
+      </p>
+  </body>
+</html>

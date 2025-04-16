@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="retro">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFPizza</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <main class="w-full mx-auto my-16 flex flex-col justify-center items-center">
+      <h1>Monte a sua Pizza!</h1>
+
+      <form method="post" th:object="${pizza}">
+
+        <fieldset class="fieldset p-4 bg-base-100 border border-base-300 rounded-box w-64">
+          <legend class="fieldset-legend">Borda</legend>
+          <div th:each="ingredient : ${crust}">
+            <label class="fieldset-label" th:for="${ingredient.id}">
+              <input type="checkbox" class="checkbox" name="ingredients" th:value="${ingredient.id}" th:id="${ingredient.id}" />
+              <span th:text="${ingredient.name}"></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset p-4 bg-base-100 border border-base-300 rounded-box w-64">
+          <legend class="fieldset-legend">Proteinas</legend>
+          <div th:each="ingredient : ${protein}">
+            <label class="fieldset-label" th:for="${ingredient.id}">
+              <input type="checkbox" class="checkbox" name="ingredients" th:value="${ingredient.id}" th:id="${ingredient.id}" />
+              <span th:text="${ingredient.name}"></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset p-4 bg-base-100 border border-base-300 rounded-box w-64">
+          <legend class="fieldset-legend">Proteinas</legend>
+          <div th:each="ingredient : ${vegetables}">
+            <label class="fieldset-label" th:for="${ingredient.id}">
+              <input type="checkbox" class="checkbox" name="ingredients" th:value="${ingredient.id}" th:id="${ingredient.id}" />
+              <span th:text="${ingredient.name}"></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset p-4 bg-base-100 border border-base-300 rounded-box w-64">
+          <legend class="fieldset-legend">Proteinas</legend>
+          <div th:each="ingredient : ${cheese}">
+            <label class="fieldset-label" th:for="${ingredient.id}">
+              <input type="checkbox" class="checkbox" name="ingredients" th:value="${ingredient.id}" th:id="${ingredient.id}" />
+              <span th:text="${ingredient.name}"></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <br><br>
+
+        <div>
+          <label> Escolha o nome da sua pizza: </label> <br>
+          <label>
+            <input class="input" type="text" th:field="*{name}" required>
+          </label>
+
+          <button class="btn" type="submit">Enviar</button>
+        </div>
+      </form>
+    </main>
+
+
+  </body>
+</html>
