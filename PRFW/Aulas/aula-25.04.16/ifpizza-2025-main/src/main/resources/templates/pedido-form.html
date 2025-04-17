@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Pedido</title>
+	<link rel="stylesheet" th:href="@{/estilos.css}">
+</head>
+<body>
+	<h1>Pedido</h1>
+	
+	<form method="post" th:action="@{/pedido}" th:object="${pedido}">
+	
+	        <label for="nome">Cliente:</label>
+	        <input type="text" th:field="*{cliente}">
+	        <span class="error"
+	        	th:if="${#fields.hasErrors('cliente')}"
+	        	th:errors="*{cliente}"></span>
+	        <br>
+	        
+	        <label for="endereco">Endereço:</label>
+	        <input type="text" th:field="*{endereco}">
+	        <span class="error"
+	        	th:if="${#fields.hasErrors('endereco')}"
+	        	th:errors="*{endereco}"></span>	        
+	        <br>
+	
+	        <label for="cidade">Cidade:</label>
+	        <input type="text" th:field="*{cidade}">
+	        <span class="error"
+	        	th:if="${#fields.hasErrors('cidade')}"
+	        	th:errors="*{cidade}"></span>	        
+	        <br>
+	
+	        <label for="estado">Estado:</label>
+	        <input type="text" th:field="*{estado}">
+	        <span class="error"
+	        	th:if="${#fields.hasErrors('estado')}"
+	        	th:errors="*{estado}"></span>	        	        
+	        <br>
+	
+	        <label for="cep">CEP:</label>
+	        <input type="text" th:field="*{cep}">
+	        <span class="error"
+	        	th:if="${#fields.hasErrors('cep')}"
+	        	th:errors="*{cep}"></span>	        	        
+	        <br>
+	        
+	        <label for="cartaoNumero">Cartão de crédito:</label>
+	        <input type="text" th:field="*{cartaoNumero}">
+	        <span class="error"
+	        	th:if="${#fields.hasErrors('cartaoNumero')}"
+	        	th:errors="*{cartaoNumero}"></span>	        	        
+	        <br>
+	
+	        <label for="cartaoCVV">CVV:</label>
+	        <input type="text" th:field="*{cartaoCVV}">
+	        <span class="error"
+	        	th:if="${#fields.hasErrors('cartaoCVV')}"
+	        	th:errors="*{cartaoCVV}"></span>	        	        
+	        <br>
+	
+	        <label for="cartaoExpiracao">Data de expiração:</label>
+	        <input type="text" th:field="*{cartaoExpiracao}">
+	        <span class="error"
+	        	th:if="${#fields.hasErrors('cartaoExpiracao')}"
+	        	th:errors="*{cartaoExpiracao}"></span>	        	        
+	        <br>
+	        
+	        <button type="submit">Enviar</button>
+	</form>
+</body>
+</html>

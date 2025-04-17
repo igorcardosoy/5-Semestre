@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.hl {
+	background-color: lightyellow;
+	padding: 0.25ex;
+}
+
+.error {
+	font-size: 0.7rem;
+	color: red;
+}
