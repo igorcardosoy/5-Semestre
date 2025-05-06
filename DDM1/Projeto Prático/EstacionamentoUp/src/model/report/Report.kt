@@ -1,5 +1,7 @@
-package model
+package model.report
+
+import model.veiculo.Veiculo
 
 interface Report {
-    fun showAll()
+    fun getAll(carros: List<Veiculo>, motos: List<Veiculo>): String
 }

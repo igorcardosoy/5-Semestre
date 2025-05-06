@@ -1,6 +1,5 @@
 package view
 
-import model.EstacionamentoDAO
 import model.veiculo.Veiculo
 import model.veiculo.VeiculoEnum
 import java.time.Instant
@@ -57,8 +56,8 @@ fun showString(string: String) {
 
 fun saidaVeiculo(veiculo: Veiculo, preco: Double) {
     println("Veículo ${veiculo.placa} saiu do estacionamento")
-    println("Tempo: ${veiculo.getSegundos()} horas(segundos).")
-    println("Valor: ${veiculo.getPreco(preco)}")
+    println("Tempo: ${veiculo.getSegundos() / 10} hora(s).")
+    println("Valor: R$${String.format("%.2f", veiculo.getPreco(preco))}")
 }
 
 fun tipoVeiculo(): VeiculoEnum {
