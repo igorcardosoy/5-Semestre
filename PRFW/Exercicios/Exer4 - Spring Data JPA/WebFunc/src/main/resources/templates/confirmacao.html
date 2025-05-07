@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="retro">
+  <head>
+    <meta charset="UTF-8">
+    <title>Confirmação de Cadastro</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+     <h1 class="text-3xl font-bold text-center mt-10">Cadastro Realizado com Sucesso!</h1>
+
+    <div class="flex justify-center mt-5 gap-4 flex-col items-center">
+      <p class="text-lg">Nome: <span th:text="${funcionario.nome}"></span></p>
+      <p class="text-lg">Matrícula: <span th:text="${funcionario.matricula}"></span></p>
+      <p class="text-lg">Cargo: <span th:text="${funcionario.cargo}"></span></p>
+      <p class="text-lg">Altura: <span th:text="${#numbers.formatDecimal(funcionario.altura, 0, 2)}"></span></p>
+    </div>
+
+
+    <div class="flex justify-center mt-5">
+      <a th:href="@{/listar}" class="btn">Voltar para a lista de Funcionários</a>
+    </div>
+  </body>
+</html>

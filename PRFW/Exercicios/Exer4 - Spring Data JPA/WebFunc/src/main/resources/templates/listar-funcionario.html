@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="retro">
+  <head>
+    <meta charset="UTF-8">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+
+    <title>Listar</title>
+  </head>
+  <body>
+
+    <h1 class="text-3xl font-bold text-center mt-10">Lista de Funcionários</h1>
+    <main class="w-96 mx-auto my-16 flex flex-col justify-center items-center">
+      <section class="flex flex-col justify-center items-center" th:each="departamento : ${departamentos}">
+        <h2 class="text-2xl font-bold text-center mt-10" th:text="${departamento.nome}"></h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Matrícula</th>
+              <th>Nome</th>
+              <th>Cargo</th>
+              <th>Altura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="funcionario : ${departamento.funcionarios}">
+              <td th:text="${funcionario.matricula}"></td>
+              <td th:text="${funcionario.nome}"></td>
+              <td th:text="${funcionario.cargo}"></td>
+              <td th:text="${#numbers.formatDecimal(funcionario.altura, 0, 2)}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <a class="btn mt-16" href="/cadastro">Cadastrar Novo Funcionário</a>
+    </main>
+  </body>
+</html>
